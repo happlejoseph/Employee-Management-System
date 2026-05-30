@@ -1,0 +1,245 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f1f5f9;
+    color: #1e293b;
+}
+
+/* NAVBAR */
+
+nav {
+    background-color: white;
+    padding: 15px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+nav div {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+nav h3 {
+    font-size: 24px;
+    color: #000000;
+}
+
+.navItems {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    list-style: none;
+}
+
+.navItems li a {
+    text-decoration: none;
+    color: #1e293b;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.navItems li a:hover {
+    color: #2563eb;
+}
+
+.add-btn {
+    padding: 10px 18px;
+    text-decoration: none;
+    border: none;
+    background-color: green;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.add-btn:hover {
+    background-color: rgb(0, 94, 0)
+}
+
+/* HERO SECTION */
+
+main section {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+main h1 {
+    font-size: 55px;
+    margin-bottom: 20px;
+    color: #0f172a;
+}
+
+main p {
+    font-size: 20px;
+    color: #64748b;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 768px) {
+
+    nav {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .navItems {
+        flex-direction: column;
+    }
+
+    main h1 {
+        font-size: 38px;
+    }
+
+    main p {
+        font-size: 16px;
+    }
+}
+
+
+/* employee section */
+.sectionTitle {
+    font-size: 25px;
+    color: #64748b;
+}
+
+.tableTitle {
+    margin-bottom: 25px;
+}
+
+.tableTitle h2 {
+    font-size: 32px;
+    color: #1e293b;
+}
+
+.tableContainer {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+thead {
+    background-color: #64748b;
+    color: white;
+}
+
+th {
+    padding: 15px;
+    text-align: left;
+}
+
+td {
+    padding: 15px;
+    border-bottom: 1px solid #e2e8f0;
+    color: #475569;
+    text-align: left;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.editBtn {
+    padding: 8px 14px;
+    border: none;
+    background-color: #2563eb;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.deleteBtn {
+    padding: 8px 14px;
+    border: none;
+    background-color: #ef4444;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+
+/* form style */
+
+form {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.formContainer {
+    width: 500px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.formContainer input,
+.formContainer select {
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+}
+
+.formContainer input:focus,
+.formContainer select:focus {
+    border-color: #2563eb;
+}
+
+.formBtn {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.formBtn button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.formBtn button:first-child {
+    background-color: green;
+    color: white;
+
+}
+.formBtn button:first-child:hover {
+    background-color: rgb(0, 97, 0);
+}

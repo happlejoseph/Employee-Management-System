@@ -13,10 +13,10 @@ const port = 3001;
 const client = new MongoClient('mongodb://127.0.0.1:27017/');
 
 // create database //
-const db = client.db('EmployeeManagement')
+const db = client.db('EmployeeManagement');
 
 // create collection //
-const collection = db.collection('employees')
+const collection = db.collection('employees');
 
 const app = http.createServer((req,res)=> {
 
@@ -51,11 +51,14 @@ const app = http.createServer((req,res)=> {
         req.on('end',()=> {
             const formData = queryString.parse(body)
             // console.log(formData);
-            Collection.insertOne(formData)
+            collection.insertOne(formData)
             .then(()=> {
 
             })
-            .catch((err))
+            .catch((err)=> {
+                console.log(err);
+                
+            })
         });
 
         res.writeHead(201, {"content-type":'text/html'});

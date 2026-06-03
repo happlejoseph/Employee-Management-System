@@ -5,8 +5,7 @@ const url = require('url');    // get pathname
 const fs = require('fs');      // read files
 const queryString = require('querystring'); // import queryString
 
-const {MongoClient, Collection} = require('mongodb'); // connect MongoDB
-const { text } = require('stream/consumers');
+const {MongoClient} = require('mongodb'); // connect MongoDB
 
 const port = 3001;
 
@@ -30,7 +29,7 @@ const app = http.createServer((req,res)=> {
     }
     else if(pathname === '/client/style.css') {
         res.writeHead(200, {"content-type":'text/css'});
-        res.end(fs.readFileSync('../clent/style.css'));
+        res.end(fs.readFileSync('../client/style.css'));
     }
     else if(pathname === '/client/images/logo.png') {
         res.writeHead(200, {"content-type":'text/png'});
@@ -39,17 +38,19 @@ const app = http.createServer((req,res)=> {
 
     // form submit //
     if(pathname === '/addEmployee' && req.method === 'POST') {
-        // console.log('form submited');
+        console.log('form submited');
 
         let body = ""
         req.on('data',(chunks)=> {
-            // console.log(chunks);
+            console.log(chunks);
             body += chunks.toString()
             // console.log(body); 
         });
 
         req.on('end',()=> {
             const formData = queryString.parse(body)
+            console.log(formData);
+            
             // console.log(formData);
             collection.insertOne(formData)
             .then(()=> {

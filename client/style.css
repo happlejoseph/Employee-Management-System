@@ -8,14 +8,14 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #f1f5f9;
+    background-color: #12212c;
     color: #1e293b;
 }
 
 /* NAVBAR */
 
 nav {
-    background-color: white;
+    background-color: #001e2b;
     padding: 15px 60px;
     display: flex;
     justify-content: space-between;
@@ -38,7 +38,7 @@ nav div {
 
 nav h3 {
     font-size: 24px;
-    color: #000000;
+    color: white;
 }
 
 .navItems {
@@ -50,28 +50,28 @@ nav h3 {
 
 .navItems li a {
     text-decoration: none;
-    color: #1e293b;
+    color: white;
     font-weight: 500;
     transition: 0.3s;
 }
 
 .navItems li a:hover {
-    color: #2563eb;
+    color: rgb(0, 255, 0);
 }
 
 .add-btn {
     padding: 10px 18px;
     text-decoration: none;
     border: none;
-    background-color: green;
-    color: white;
+    background-color: #00ed64;
+    color: 1e293b;
     border-radius: 8px;
     cursor: pointer;
     transition: 0.3s;
 }
 
 .add-btn:hover {
-    background-color: rgb(0, 94, 0)
+    background-color: rgb(0, 255, 0);
 }
 
 /* HERO SECTION */
@@ -84,12 +84,24 @@ main section {
 main h1 {
     font-size: 55px;
     margin-bottom: 20px;
-    color: #0f172a;
+    background: linear-gradient(
+        90deg,
+        #ffffff 0%,
+        #ffffff 35%,
+        #00e6a8 55%,
+        #24d8ff 80%,
+        #d7f68b 100%
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
 }
 
 main p {
     font-size: 20px;
-    color: #64748b;
+    color: white
 }
 
 /* RESPONSIVE */

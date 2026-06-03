@@ -243,7 +243,7 @@ form {
 
 .formContainer input:focus,
 .formContainer select:focus {
-    border-color: #2563eb;
+    border-color: greenyellow;
 }
 
 .formBtn {
@@ -268,4 +268,24 @@ form {
 }
 .formBtn button:first-child:hover {
     background-color: rgb(0, 97, 0);
+}
+
+/* ABOUT PAGE */
+.about h2 {
+    color: white;
+    padding-top: 20px;
+    font-size: 42px;
+    background: linear-gradient(
+        90deg,
+        #ffffff 0%,
+        #ffffff 0%,
+        #00e6a8 55%,
+        #24d8ff 80%,
+        #d7f68b 100%
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
 }

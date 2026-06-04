@@ -10,6 +10,7 @@ const {MongoClient} = require('mongodb'); // connect MongoDB
 const port = 3001;
 
 const client = new MongoClient('mongodb://127.0.0.1:27017/');
+// await client.connect();
 
 // create database //
 const db = client.db('EmployeeManagement');
@@ -44,13 +45,13 @@ const app = http.createServer(async(req,res)=> {
     }
 
     else if(pathname === '/client/images/logo.png') {
-        res.writeHead(200, {"content-type":'text/png'});
+        res.writeHead(200, {"content-type":'image/png'});
         res.end(fs.readFileSync('../client/images/logo.png'));
     }
 
     else if(pathname === '/client/js/index.js') {
-        res.writeHead(200, {"content-type":'appliccation/javascript'});
-        res.end(fs.readFileSync('../client/js/indexjs'));
+        res.writeHead(200, {"content-type":'application/javascript'});
+        res.end(fs.readFileSync('../client/js/index.js'));
     }
 
     // form submit //

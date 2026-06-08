@@ -17,6 +17,8 @@ const db = client.db('EmployeeManagement');
 
 // create collection //
 const collection = db.collection('employees');
+// fot contacts //
+const contactCollection = db.collection('contacts');
 
 const app = http.createServer(async(req,res)=> {
 
@@ -39,6 +41,11 @@ const app = http.createServer(async(req,res)=> {
         res.end(fs.readFileSync('../client/pages/addEmployee.html'));
     }
 
+    else if(pathname === '/contact') {
+        res.writeHead(200, {"content-type":'text/html'});
+        res.end(fs.readFileSync('../client/pages/contact.html'));
+    }
+
     else if(pathname === '/client/style.css') {
         res.writeHead(200, {"content-type":'text/css'});
         res.end(fs.readFileSync('../client/style.css'));
@@ -54,11 +61,13 @@ const app = http.createServer(async(req,res)=> {
         res.end(fs.readFileSync('../client/js/index.js'));
     }
 
+
     // form submit //
     if(pathname === '/submit' && req.method === 'POST') {
-        console.log('form submited');
+        // console.log('form submited');
 
-        let body = ""
+        let body = "";
+
         req.on('data',(chunks)=> {
             // console.log(chunks);
             body += chunks.toString()
@@ -66,7 +75,7 @@ const app = http.createServer(async(req,res)=> {
         });
 
         req.on('end',()=> {
-            const formData = queryString.parse(body)
+            const formData = queryString.parse(body);
             // console.log(formData);
             
             // console.log(formData);
@@ -82,6 +91,33 @@ const app = http.createServer(async(req,res)=> {
 
         res.writeHead(201, {"content-type":'text/html'});
         res.end(fs.readFileSync('../client/index.html'));
+    }
+
+
+    // contact form submit //
+    if(pathname === '/contactSubmit' && req.method === 'POST') {
+        // console.log('contact form submited');
+
+        let body = "";
+        
+        req.on('data',(chunks)=> {
+            body += chunks.toString();
+        });
+
+        req.on('end',()=> {
+            const formData = queryString.parse(body);
+            // console.log(formData);
+
+            collection.insertOne(formData)
+            .then(()=> {
+
+            })
+            .catch((err)=> {
+                console.log(err);
+                
+            })
+            
+        });
     }
 
     // fetch employee //

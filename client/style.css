@@ -212,7 +212,7 @@ td {
 }
 
 
-/* form style */
+/* ADD EMPLOYEE FORM STYLE */
 
 form {
     display: flex;
@@ -223,21 +223,24 @@ form {
 }
 
 .formContainer {
-    width: 500px;
-    background-color: white;
-    padding: 30px;
-    border-radius: 12px;
+    width: 750px;
+    background: rgba(255,255,255,0.05);
+    padding: 60px 40px;
+    border-radius: 35px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    border: 1px solid rgba(255,255,255,0.1);
+    /* backdrop-filter: blur(15px); */
 
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 15px;
 }
 
 .formTitle{
     text-align: center;
-    margin-bottom: 48px;
-    padding-top: 28px;
+    margin-bottom: 20px;
+    padding-top: 20px;
     font-size: 42px;
 
     background: linear-gradient(
@@ -251,13 +254,23 @@ form {
     background-clip: text;
 }
 
+.formSubtitle {
+    text-align: center;
+    color: white;
+    margin-bottom: 70px;
+    font-size: 20px;
+}
+
 .formContainer input,
 .formContainer select {
     padding: 12px;
-    border: 1px solid #cbd5e1;
-    border-radius: 8px;
+    border: 1px solid #bccadb;
+    border-radius: 10px;
     font-size: 16px;
     outline: none;
+    background: none;
+    color: white;
+    width: 90%;
 }
 
 .formContainer input:focus,
@@ -269,13 +282,14 @@ form {
     display: flex;
     gap: 10px;
     margin-top: 10px;
+    width: 90%;
 }
 
 .formBtn button {
     flex: 1;
     padding: 12px;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
     font-weight: bold;
 }
@@ -307,7 +321,7 @@ form {
 
 .about-card {
     background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(15px);
+    /* backdrop-filter: blur(15px); */
     border: 1px solid rgba(255,255,255,0.1);
     border-radius: 35px;
     padding: 35px;
@@ -385,9 +399,9 @@ form {
 }
 
 
-.contact-section {
+.contact-title {
     padding-top: 20px;
-    font-size: 30px;
+    font-size: 42px;
     margin-bottom: 20px;
     background: linear-gradient(
         90deg,
@@ -399,4 +413,55 @@ form {
     -webkit-text-fill-color: transparent;
     background-clip: text;
 
+}
+
+.contact-subtitle {
+    text-align: center;
+    color: white;
+    margin-bottom: 70px;
+    font-size: 20px;
+}
+
+.contactForm-container {
+    width: 750px;
+    margin: 0 auto;
+    padding: 60px 40px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 35px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transition: all 0.3s ease-in-out;
+}
+
+.contactForm-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.contactForm-container input {
+    padding: 12px;
+    border: 1px solid rgb(196, 196, 196);
+    border-radius: 10px;
+    font-size: 16px;
+    background: none;
+    color: white;
+    width: 80%;
+}
+
+.contactForm-container button {
+    padding: 12px;
+    background-color: #00ed64;
+    color: #001E2B;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 80%;
+}
+
+.contactForm-container button:hover {
+    background-color: #00c251;
 }

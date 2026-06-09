@@ -89,7 +89,7 @@ const app = http.createServer(async(req,res)=> {
 
             try {
                 await collection.insertOne(formData);
-                // console.log('inserted:', result);
+                // console.log('Employee inserted successfully');
                 
             }
             catch(err) {

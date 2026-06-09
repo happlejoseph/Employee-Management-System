@@ -16,4 +16,5 @@ async function getEmployee() {
     // console.log(employee);
     
 }
+getEmployee();
 

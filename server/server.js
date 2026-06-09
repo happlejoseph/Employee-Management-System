@@ -5,9 +5,9 @@ const url = require('url');    // get pathname
 const fs = require('fs');      // read files
 const queryString = require('querystring'); // import queryString
 
-const {MongoClient} = require('mongodb'); // connect MongoDB
+const {MongoClient, ObjectId} = require('mongodb'); // connect MongoDB
 
-const port = 3001;
+const port = 3002;
 
 const client = new MongoClient('mongodb://127.0.0.1:27017/');
 // await client.connect();
@@ -74,19 +74,28 @@ const app = http.createServer(async(req,res)=> {
             // console.log(body); 
         });
 
-        req.on('end',()=> {
+        req.on('end', async ()=> {
             const formData = queryString.parse(body);
             // console.log(formData);
-            
-            // console.log(formData);
-            collection.insertOne(formData)
-            .then(()=> {
 
-            })
-            .catch((err)=> {
-                console.log(err);
+            // collection.insertOne(formData)
+            // .then(()=> {
+
+            // })
+            // .catch((err)=> {
+            //     console.log(err);
                 
-            })
+            // })
+
+            try {
+                await collection.insertOne(formData);
+                // console.log('inserted:', result);
+                
+            }
+            catch(err) {
+                // console.log('mongo erroe:', err);
+                
+            }
         });
 
         res.writeHead(201, {"content-type":'text/html'});
@@ -108,7 +117,7 @@ const app = http.createServer(async(req,res)=> {
             const formData = queryString.parse(body);
             // console.log(formData);
 
-            collection.insertOne(formData)
+            contactCollection.insertOne(formData)
             .then(()=> {
 
             })
@@ -134,6 +143,10 @@ const app = http.createServer(async(req,res)=> {
     }
 
     // edit //
+    if(pathname === '/editEmployee' && req.method === 'GET') {
+        res.writeHead(200, {"content-type":'text/html'});
+        res.end(fs.readFileSync('../client/pages/editEmployee.html'));
+    }
     
 
 })

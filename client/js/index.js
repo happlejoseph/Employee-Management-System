@@ -4,7 +4,7 @@ let employees = [];
 
 async function getEmployees() {
 
-    const res = await fetch('http://localhost:3001/getEmployees');
+    const res = await fetch('http://localhost:3002/getEmployees');
     const data = await res.json();
 
     employees = data;
@@ -38,12 +38,7 @@ async function getEmployees() {
                 </tr>        
             `
     });
-    getEmployees();
 
 
 }
-
-// edit function //
-async function editEmployee(id) {
-    
-}
+getEmployees();

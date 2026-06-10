@@ -1,55 +1,61 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Add Employee</title>
     <link rel="stylesheet" href="/client/style.css">
 </head>
+
 <body>
 
-    <header>
-        <nav>
-            <div>
-                <img src="/client/images/logo.png" class="logo" alt="logo">
-                <h3>Employee Management</h3>
-            </div>
+<header>
+    <nav>
+        <div>
+            <img src="/client/images/logo.png" class="logo" alt="logo">
+            <h3>Employee Management</h3>
+        </div>
 
-            <ul class="navItems">
-                <li><a href="">Home</a></li>
-                <li><a href="">About</a></li>
-                <li><a href="">Contact</a></li>
+        <ul class="navItems">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
 
-                <!-- <a href="" class="add-btn">Add Employee</a> -->
-            </ul>
-        </nav>
-    </header>
+<section class="employee-section">
 
+    <h1 class="employee-title">Add Employee</h1>
+    <p class="employee-subtitle">
+        Add employee information and manage your workforce efficiently.
+    </p>
 
-    <form action="/submit" method="post">
-        <h1 class="formTitle">Add Employee</h1>
+    <form action="/submit" method="post" class="employee-form">
 
-        <p class="formSubtitle">Add employee information and keep your workforce records up to date.</p>
-        
-        <div class="formContainer">
-            <input type="text" name="name" id="name" placeholder="Enter Name">
-            <input type="text" name="email" id="email" placeholder="Enter Email">
-            <input type="text" name="role" id="role" placeholder="Enter Role">
-            <input type="text" name="department" id="department" placeholder="Enter Department">
-            <input type="number" name="salary" id="salary" placeholder="Enter Salary">
+        <div class="form-grid">
 
-            <select name="status" id="">
-                <option value="" disabled>Selete Status</option>
+            <input type="text" name="name" placeholder="Full Name" required>
+            <input type="email" name="email" placeholder="Email Address" required>
+            <input type="text" name="role" placeholder="Role" required>
+            <input type="text" name="department" placeholder="Department" required>
+            <input type="number" name="salary" placeholder="Salary" required>
+
+            <select name="status" required>
+                <option value="" disabled selected>Select Status</option>
                 <option value="active">Active</option>
                 <option value="inactive">Inactive</option>
             </select>
 
-            <div class="formBtn">
-                <button type="submit">Save Employee</button>
-            </div>
         </div>
+
+        <button type="submit" class="employee-btn">
+            Save Employee
+        </button>
+
     </form>
+
+</section>
+
 </body>
 </html>

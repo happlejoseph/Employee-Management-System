@@ -3,46 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Contact</title>
     <link rel="stylesheet" href="/client/style.css">
 </head>
+
 <body>
-    <header>
-        <nav>
-            <div>
-                <img src="/client/images/logo.png" class="logo" alt="logo">
-                <h3>Employee Management</h3>
+
+<header>
+    <nav>
+        <div>
+            <img src="/client/images/logo.png" class="logo" alt="logo">
+            <h3>Employee Management</h3>
+        </div>
+
+        <ul class="navItems">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="contact-section">
+
+    <h2 class="contact-title">Contact Us</h2>
+    <p class="contact-subtitle">Need Help? Reach Out to Us.</p>
+
+    <div class="contact-wrapper">
+
+        <!-- LEFT INFO -->
+        <div class="contact-info">
+
+            <div class="info-card">
+                <h3>📧 Email</h3>
+                <p>support@company.com</p>
             </div>
 
-            <ul class="navItems">
-                <li><a href="/">Home</a></li>
-                <li><a href="">About</a></li>
-                <li><a href="">Contact</a></li>
+            <div class="info-card">
+                <h3>📞 Phone</h3>
+                <p>+91 98765 43210</p>
+            </div>
 
-                <!-- <a href="" class="add-btn">Add Employee</a> -->
-            </ul>
-        </nav>
-    </header>
+            <div class="info-card">
+                <h3>📍 Location</h3>
+                <p>India, Remote Office</p>
+            </div>
 
-    <main>
-        <section class="contact-section">
-            <h2 class="contact-title">Contact Us</h2>
+        </div>
 
-            <p class="contact-subtitle">
-                Need Help? Reach Out to Us.
-            </p>
+        <!-- RIGHT FORM -->
+        <div class="contactForm-container">
 
-            <div class="contactForm-container">
             <form action="/contactSubmit" method="post">
-                <input type="text" name="name" id="" placeholder="Full Name" required>
-                <input type="tel" name="phone" id="" value="+91" placeholder="Phone Number" required>
-                <input type="text" name="email" id="" placeholder="Email Address" required>
+                <input type="text" name="name" placeholder="Full Name" required>
+                <input type="tel" name="phone" placeholder="Phone Number" required>
+                <input type="email" name="email" placeholder="Email Address" required>
 
-                <button type="submit">Connect</button>
+                <button type="submit">Send Message</button>
             </form>
-            </div>
-        </section>
-    </main>
-    
+
+        </div>
+
+    </div>
+</section>
+
 </body>
 </html>

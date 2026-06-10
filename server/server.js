@@ -147,6 +147,50 @@ const app = http.createServer(async(req,res)=> {
         res.writeHead(200, {"content-type":'text/html'});
         res.end(fs.readFileSync('../client/pages/editEmployee.html'));
     }
+
+    if(pathname === '/getEmployeeById' && req.method === 'GET') {
+
+        const {id} = query;
+
+        const employee = await collection.findOne({
+            _id: new ObjectId(id)
+        });
+
+        res.writeHead(200, {"content-type":'application/json'});
+
+        res.end(JSON.stringify(employee));
+    }
+
+    // update //
+    if(pathname === '/updateEmployee' && req.method === 'PUT') {
+
+        let body = "";
+
+        req.on('data', (chunk)=> {
+            body += chunk.toString();
+        });
+
+        req.on('end', async()=> {
+
+            const data = JSON.parse(body);
+
+            await collection.updateOne(
+                {_id: new ObjectId(data.id)},
+
+                {
+                    $set: {
+                        name:data.name,
+                        email:data.email,
+                        role:data.role,
+                        department:data.department,
+                        salary:data.salary
+                    }
+                }
+            );
+
+            res.end('success')
+        })
+    }
     
 
 })

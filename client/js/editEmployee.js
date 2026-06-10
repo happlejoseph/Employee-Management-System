@@ -2,19 +2,43 @@
 
 const params = new URLSearchParams(window.location.search);
 
-const id = params.get('id');
+const employeeId = params.get('id');
 
-// console.log(id);
+function editEmployee(id) {
+    window.location.href = `/editEmployee?id=${id}`;
+    const res = await fetch(`http://localhost:3002/getEmployeeById?id=${employeeId}`)
+};
 
-// edit //
-async function getEmployee() {
-    
-    const res = await fetch(`/getEmployee?id=${id}`);
+const employee = await res.json();
 
-    const employee = await res.json();
+document.getElementById('name').value = employee.name;
+document.getElementById('email').value = employee.email;
+document.getElementById('role').value = employee.role;
+document.getElementById('department').value = employee.department;
+document.getElementById('salary').value = employee.salary;
 
-    // console.log(employee);
-    
+const updatedEmployee = {
+    id: employeeId,
+    name,
+    email,
+    role,
+    department,
+    salary
+};
+
+await fetch('/updateEmployee', {
+    method: 'PUT',
+    headers: {
+        'content-Type': 'application/json'
+    },
+    body: JSON.stringify(updatedEmployee)
+});
+
+const message = await res.text();
+
+if(message === 'success') {
+    alert('Employee updated successfully!')
 }
-getEmployee();
-
+else {
+    alert('Failed to update employee.')
+}

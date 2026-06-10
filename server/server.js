@@ -22,7 +22,7 @@ const contactCollection = db.collection('contacts');
 
 const app = http.createServer(async(req,res)=> {
 
-    const {pathname} = url.parse(req.url);
+    const {pathname, query} = url.parse(req.url, true);
     console.log(pathname);
     
 
@@ -59,6 +59,11 @@ const app = http.createServer(async(req,res)=> {
     else if(pathname === '/client/js/index.js') {
         res.writeHead(200, {"content-type":'application/javascript'});
         res.end(fs.readFileSync('../client/js/index.js'));
+    }
+
+    else if(pathname === '/client/js/editEmployee.js') {
+        res.writeHead(200, {"content-type":'application/javascript'});
+        res.end(fs.readFileSync('../client/js/editEmployee.js'));
     }
 
 
@@ -148,6 +153,7 @@ const app = http.createServer(async(req,res)=> {
         res.end(fs.readFileSync('../client/pages/editEmployee.html'));
     }
 
+    // fetch //
     if(pathname === '/getEmployeeById' && req.method === 'GET') {
 
         const {id} = query;
@@ -162,35 +168,42 @@ const app = http.createServer(async(req,res)=> {
     }
 
     // update //
-    if(pathname === '/updateEmployee' && req.method === 'PUT') {
+    if (pathname === '/updateEmployee' && req.method === 'PUT') {
 
-        let body = "";
+    let body = "";
 
-        req.on('data', (chunk)=> {
-            body += chunk.toString();
-        });
+    req.on('data', (chunk) => {
+        body += chunk.toString();
+    });
 
-        req.on('end', async()=> {
+    req.on('end', async () => {
 
+        try {
             const data = JSON.parse(body);
 
             await collection.updateOne(
-                {_id: new ObjectId(data.id)},
-
+                { _id: new ObjectId(data.id) },
                 {
                     $set: {
-                        name:data.name,
-                        email:data.email,
-                        role:data.role,
-                        department:data.department,
-                        salary:data.salary
+                        name: data.name,
+                        email: data.email,
+                        role: data.role,
+                        department: data.department,
+                        salary: data.salary
                     }
                 }
             );
 
-            res.end('success')
-        })
-    }
+            res.writeHead(200, { "content-type": "text/plain" });
+            res.end("success");
+
+        } catch (err) {
+            console.log(err);
+            res.writeHead(500);
+            res.end("error");
+        }
+    });
+}
     
 
 })

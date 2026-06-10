@@ -39,6 +39,13 @@ async function getEmployees() {
             `
     });
 
+    
+
 
 }
+
+function editEmployee(id) {
+    window.location.href = `/editEmployee?id=${id}`;
+}
+
 getEmployees();

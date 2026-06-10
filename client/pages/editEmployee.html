@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Employee</title>
+    <title>Edit Employee</title>
     <link rel="stylesheet" href="/client/style.css">
 </head>
 
@@ -35,11 +35,11 @@
 
         <div class="form-grid">
 
-            <input type="text" name="name" placeholder="Full Name" required>
-            <input type="email" name="email" placeholder="Email Address" required>
-            <input type="text" name="role" placeholder="Role" required>
-            <input type="text" name="department" placeholder="Department" required>
-            <input type="number" name="salary" placeholder="Salary" required>
+            <input type="text" id="name" name="name" placeholder="Full Name" required>
+            <input type="email" id="email" name="email" placeholder="Email Address" required>
+            <input type="text" id="role" name="role" placeholder="Role" required>
+            <input type="text" id="department" name="department" placeholder="Department" required>
+            <input type="number" id="salary" name="salary" placeholder="Salary" required>
 
             <select name="status" required>
                 <option value="" disabled selected>Select Status</option>
@@ -49,7 +49,7 @@
 
         </div>
 
-        <button type="submit" class="employee-btn">
+        <button type="button" onclick="updateEmployee()" class="employee-btn">
             Update Employee
         </button>
 
@@ -57,5 +57,7 @@
 
 </section>
 
+<script src="/client/js/editEmployee.js"></script>
 </body>
+
 </html>

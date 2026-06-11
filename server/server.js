@@ -204,6 +204,28 @@ const app = http.createServer(async(req,res)=> {
         }
     });
 }
+
+
+// delete //
+if(pathname === '/deleteEmployee' && req.method === 'DELETE') {
+
+    const {id} = query;
+
+    try {
+        await collection.deleteOne({
+            _id: new ObjectId(id)
+        });
+
+        res.writeHead(200, {"content-type":'text/plain'});
+        res.end('success')
+    }
+    catch(err) {
+        console.log(err);
+        res.writeHead(500);
+        res.end('error');
+        
+    }
+}
     
 
 })

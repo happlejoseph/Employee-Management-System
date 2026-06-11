@@ -19,7 +19,7 @@ async function getEmployees() {
 
             `
                 <tr>
-                    <td>${employee.name}</td>
+                    <td>${employee.name}</td>   
                     <td>${employee.email}</td>
                     <td>${employee.role}</td>
                     <td>${employee.department}</td>
@@ -33,7 +33,7 @@ async function getEmployees() {
                     
                     <td class="actions">
                         <button class="editBtn" onclick="editEmployee('${employee._id}')">Edit</button>
-                        <button class="deleteBtn">Delete</button>
+                        <button class="deleteBtn" onclick="deleteEmployee('${employee._id}')">Delete</button>
                     </td>
                 </tr>        
             `
@@ -49,3 +49,27 @@ function editEmployee(id) {
 }
 
 getEmployees();
+
+
+// delete //
+async function deleteEmployee(id) {
+    const confirmDelete = confirm('Are you sure you want to delete this employee')
+
+    if(!confirmDelete) return;
+
+    const res = await fetch(`/deleteEmployee?id=${id}`, {
+        method: 'DELETE'
+    });
+
+    const result = await res.text();
+
+    if(result === 'success') {
+
+        alert('Employee deleted successfully!');
+        getEmployees();
+
+    }
+    else {
+        alert('Delete failed');
+    }
+}

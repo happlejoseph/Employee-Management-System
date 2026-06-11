@@ -657,3 +657,47 @@ tr:hover {
         font-size: 36px;
     }
 }
+
+
+/* SEARCH BAR */
+
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    width: 320px;
+    margin: 30px auto;
+    padding: 0 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #7b61ff;
+    animation: borderGlow 4s linear infinite;
+    border-radius: 10px;
+    backdrop-filter: blur(12px);
+}
+
+.search-container input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: white;
+    padding: 12px 0;
+    outline: none;
+}
+
+@keyframes borderGlow {
+    0% {
+        border-color: rgba(123, 97, 255, 0.4);
+        box-shadow: 0 0 2px rgba(123, 97, 255, 0.1);
+    }
+
+    50% {
+        border-color: rgba(0, 212, 255, 0.4);
+        box-shadow: 0 0 4px rgba(0, 212, 255, 0.1);
+    }
+
+    100% {
+        border-color: rgba(123, 97, 255, 0.4);
+        box-shadow: 0 0 2px rgba(123, 97, 255, 0.1);
+    }
+}

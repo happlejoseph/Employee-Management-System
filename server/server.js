@@ -153,7 +153,7 @@ const app = http.createServer(async(req,res)=> {
         res.end(fs.readFileSync('../client/pages/editEmployee.html'));
     }
 
-    // fetch //
+    // edit fetch //
     if(pathname === '/getEmployeeById' && req.method === 'GET') {
 
         const {id} = query;

@@ -1,16 +1,18 @@
+
+
 async function loadEmployee() {
 
     const params = new URLSearchParams(window.location.search);
 
     const employeeId = params.get('id');
 
-    console.log(employeeId);
+    // console.log(employeeId);
 
     const res = await fetch(`/getEmployeeById?id=${employeeId}`);
 
     const employee = await res.json();
 
-    console.log(employee);
+    // console.log(employee);
 
     document.getElementById('name').value = employee.name;
     document.getElementById('email').value = employee.email;
@@ -23,7 +25,7 @@ loadEmployee();
 
 
 async function updateEmployee() {
-    console.log("Update clicked");
+    // console.log("Update clicked");
 
     const params = new URLSearchParams(window.location.search);
     const employeeId = params.get('id');
